@@ -16,7 +16,7 @@
     }
   </style>
 </head>
-<body class="bg-white min-h-screen flex items-center justify-center p-4">
+<body class="bg-[#F2F1F0] min-h-screen flex items-center justify-center p-4">
 
   <!-- Container principal -->
   <div class="text-center w-full max-w-4xl relative">
@@ -24,7 +24,7 @@
     <!-- Logo -->
     <div class="mb-8 sm:mb-10 md:mb-12 flex justify-center">
       <img 
-        src="./image/bg4.png" 
+        src="./image/wra2.jpg" 
         alt="Logo WRATEC"
         class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px]"
       />
@@ -40,13 +40,15 @@
       </div>
     </a>
 
-    <!-- Botão principal (apenas em mobile) -->
-    <div class="lg:hidden mt-6">
-      <a href="index1.html" class="inline-flex items-center justify-center gap-2 text-lg text-white bg-[#F21B1B] hover:bg-[#D91818] font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full max-w-xs mx-auto">
-        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-        Avançar
-      </a>
-    </div>
+    <!-- Seta para mobile (mesmo estilo da grande) -->
+    <a href="index1.html" class="lg:hidden mx-auto mt-6 block group w-fit">
+      <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
+        <i data-lucide="chevron-right" class="w-20 h-20"></i>
+        <p class="text-base mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity text-center">
+          Clique para avançar
+        </p>
+      </div>
+    </a>
 
   </div>
 
