@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-[#F8F5F1] min-h-screen flex items-center justify-center">
-    <!-- Container principal -->
-    <div class="text-center">
-      <!-- Logo GRANDE em todas as telas (até mobile) -->
-      <img
-        src="./image/wra2.jpg"
-        alt="Logo WRATEC"
-        class="mx-auto mb-8 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[800px] xl:w-[900px]"
-      />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes pulse-right {
+      0%, 100% { transform: translateX(0) scale(1); }
+      50% { transform: translateX(15px) scale(1.1); }
+    }
+    .animate-pulse-right {
+      animation: pulse-right 1.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex items-center justify-center p-4">
 
-      <!-- Botão Avançar -->
-      <a
-        href="index1.html"
-        class="bg-green-400 hover:bg-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md"
-      >
+  <!-- Container principal -->
+  <div class="text-center w-full max-w-4xl relative">
+
+    <!-- Logo -->
+    <div class="mb-8 sm:mb-10 md:mb-12 flex justify-center">
+      <img 
+        src="./image/bg4.png" 
+        alt="Logo WRATEC"
+        class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px]"
+      />
+    </div>
+
+    <!-- Seta gigante clicável (apenas em telas grandes) -->
+    <a href="index1.html" class="hidden lg:block absolute top-1/2 right-8 transform -translate-y-1/2 group">
+      <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
+        <i data-lucide="chevron-right" class="w-20 h-20"></i>
+        <p class="text-lg mt-3 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+          Clique para avançar
+        </p>
+      </div>
+    </a>
+
+    <!-- Botão principal (apenas em mobile) -->
+    <div class="lg:hidden mt-6">
+      <a href="index1.html" class="inline-flex items-center justify-center gap-2 text-lg text-white bg-[#F21B1B] hover:bg-[#D91818] font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full max-w-xs mx-auto">
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
         Avançar
       </a>
     </div>
-  </body>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
 </html>
