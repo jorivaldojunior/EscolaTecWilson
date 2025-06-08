@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | WRATEC</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 80px;
+            background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+        
+        .contact-section {
+            position: relative;
+            color: white;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 58, 138, 0.85);
+            z-index: 0;
+        }
+        
+        .contact-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .contact-info {
+            background: rgba(30, 58, 138, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .contact-info p i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: #93c5fd;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            background: white;
+        }
+        
+        .course-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        
+        .course-option {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .course-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .course-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .course-option label {
+            margin-bottom: 0;
+            color: white;
+            font-weight: 400;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 22px;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .phone-btn {
+            background: #3b82f6;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Ajustes para mobile */
+        @media (max-width: 640px) {
+            .contact-container {
+                grid-template-columns: 1fr !important;
+                padding: 1rem !important;
+            }
+            
+            .course-options {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 1.5rem !important;
+            }
+            
+            .form-group input, 
+            .form-group textarea {
+                padding: 10px 14px;
+            }
+            
+            .action-buttons {
+                gap: 10px;
+            }
+            
+            .action-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Fixo -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Ícone de Voltar -->
+                <a href="./te.html" class="text-white hover:text-blue-200 transition-colors p-1">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                
+                <!-- Título e Subtítulo Centralizados -->
+                <div class="text-center mx-4 flex-1">
+                    <h1 class="text-xl font-bold text-white">WRATEC</h1>
+                    <p class="text-xs text-blue-100 mt-1">Soluções em Treinamentos</p>
+                </div>
+                
+                <!-- Espaço vazio para balancear -->
+                <div class="w-5"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção de Contato -->
+    <section class="contact-section py-12 px-4">
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Fale Conosco</h2>
+                <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+                    Preencha o formulário abaixo para receber informações sobre
+                    matrículas, valores e turmas disponíveis
+                </p>
+            </div>
+
+            <div class="contact-container grid md:grid-cols-2 gap-6 p-6 max-w-6xl mx-auto">
+                <!-- Formulário -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="space-y-4">
+                            <div class="form-group">
+                                <label for="name">Seu Nome Completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Seu Melhor Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">WhatsApp (com DDD)</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Selecione os cursos de interesse:</label>
+                                <div class="course-options mt-3">
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-nr10" name="courses" value="NR10">
+                                        <label for="course-nr10">NR10</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-nr33" name="courses" value="NR33">
+                                        <label for="course-nr33">NR33</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-nr35" name="courses" value="NR35">
+                                        <label for="course-nr35">NR35</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-socorrista" name="courses" value="Socorrista">
+                                        <label for="course-socorrista">Socorrista</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-bombeiro" name="courses" value="Bombeiro Civil">
+                                        <label for="course-bombeiro">Bombeiro</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-seguranca" name="courses" value="Segurança">
+                                        <label for="course-seguranca">Seg. Trabalho</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-eletricista" name="courses" value="Eletricista">
+                                        <label for="course-eletricista">Eletricista</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-pedreiro" name="courses" value="Pedreiro">
+                                        <label for="course-pedreiro">Pedreiro</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-refrigeracao" name="courses" value="Refrigeração">
+                                        <label for="course-refrigeracao">Refrigeração</label>
+                                    </div>
+                                    <div class="course-option">
+                                        <input type="checkbox" id="course-pintor" name="courses" value="Pintor">
+                                        <label for="course-pintor">Pintor</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Mensagem ou Dúvidas</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+
+                            <!-- Botões de Ação -->
+                            <div class="action-buttons">
+                                <div id="whatsappBtn" class="action-btn whatsapp-btn hidden">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <a href="tel:+5581991152307" class="action-btn phone-btn">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="contact-info">
+                    <h3 class="text-2xl font-bold mb-6 text-white">Informações de Contato</h3>
+                    <div class="space-y-5">
+                        <p class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1"></i>
+                            <span>Rua Golfinho, Quadra C 19, Nº 31 - Ouro Preto, Olinda - PE</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone"></i>
+                            <span>(81) 991152307</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@escolatecwilson.com.br</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-clock"></i>
+                            <span>Segunda a Sexta: 08h às 18h</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-clock"></i>
+                            <span>Sábado: 08h às 12h</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+            
+            // Função para gerar mensagem do WhatsApp
+            function generateWhatsAppMessage(formData) {
+                const name = formData.get('name');
+                const phone = formData.get('phone');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                const courses = Array.from(formData.getAll('courses')).join(', ');
+                
+                return `Olá, meu nome é ${name}!\n\n` +
+                       `Estou interessado nos cursos: ${courses}\n\n` +
+                       `${message}\n\n` +
+                       `Meus dados para contato:\n` +
+                       `WhatsApp: ${phone}\n` +
+                       `Email: ${email}`;
+            }
+            
+            // Configurar botão do WhatsApp
+            document.getElementById('contactForm').addEventListener('input', function() {
+                const form = this;
+                const formData = new FormData(form);
+                const requiredFields = ['name', 'phone', 'email', 'message'];
+                const isFormValid = requiredFields.every(field => formData.get(field));
+                
+                if (isFormValid) {
+                    const whatsappMessage = generateWhatsAppMessage(formData);
+                    const encodedMessage = encodeURIComponent(whatsappMessage);
+                    const whatsappBtn = document.getElementById('whatsappBtn');
+                    
+                    // Atualizar link do WhatsApp
+                    whatsappBtn.onclick = () => {
+                        window.open(`https://wa.me/5581991152307?text=${encodedMessage}`, '_blank');
+                    };
+                    
+                    // Mostrar botão do WhatsApp
+                    whatsappBtn.classList.remove('hidden');
+                } else {
+                    document.getElementById('whatsappBtn').classList.add('hidden');
+                }
+            });
+            
+            // Validação do telefone
+            document.getElementById('phone').addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '');
+            });
+        };
+    </script>
+</body>
+</html>

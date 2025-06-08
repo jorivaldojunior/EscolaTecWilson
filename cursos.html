@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Profissionalizantes | WRATEC</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 80px; /* Ajustado para o novo header */
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(30, 58, 138, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+        }
+        
+        .course-card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .course-image {
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .course-card:hover .course-image {
+            transform: scale(1.03);
+        }
+        
+        .hours-badge {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Header Fixo Simplificado com Texto -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4 header-content">
+            <div class="flex items-center justify-between">
+                <!-- Ícone de Voltar -->
+                <a href="./te.html" class="text-white hover:text-blue-200 transition-colors p-1">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                
+                <!-- Título e Subtítulo Centralizados -->
+                <div class="text-center mx-4 flex-1">
+                    <h1 class="text-xl font-bold text-white">WRATEC</h1>
+                    <p class="text-xs text-blue-100 mt-1">Soluções em Treinamentos</p>
+                </div>
+                
+                <!-- Espaço vazio para balancear -->
+                <div class="w-5"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Seção de Cursos -->
+        <section class="py-8">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Curso 1 -->
+                <div class="course-card bg-white">
+                    <img src="./image/nr10.jpg" alt="NR10" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">NR10 - Segurança em Instalações Elétricas</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Curso completo para trabalhos com eletricidade, atendendo às normas de segurança.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Curso 2 -->
+                <div class="course-card bg-white">
+                    <img src="./image/nr33.jpg" alt="NR33" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">NR33 - Espaços Confinados</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Formação para trabalho seguro em espaços confinados com práticas de resgate.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Curso 3 -->
+                <div class="course-card bg-white">
+                    <img src="./image/nr35.jpg" alt="NR35" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">NR35 - Trabalho em Altura</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Treinamento completo para trabalhos em altura com técnicas seguras.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Curso 4 -->
+                <div class="course-card bg-white">
+                    <img src="./image/socorista.jpg" alt="Socorrista" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Socorrista Profissional</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Curso completo de primeiros socorros para atuação em empresas e eventos.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Curso 5 -->
+                <div class="course-card bg-white">
+                    <img src="./image/bombeiro2s.jpg" alt="Bombeiro Civil" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Bombeiro Civil</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Formação profissional para atuação como bombeiro civil em diversos locais.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Curso 6 -->
+                <div class="course-card bg-white">
+                    <img src="./image/segurança.jpg" alt="Segurança do Trabalho" class="course-image w-full">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Segurança do Trabalho</h3>
+                            <span class="hours-badge text-xs font-semibold px-2 py-1 rounded-full">200h</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Treinamento completo em normas de segurança e prevenção de acidentes.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
+                            Saiba Mais
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
