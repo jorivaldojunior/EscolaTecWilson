@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | WRATEC</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 80px;
+            background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+        
+        .about-section {
+            position: relative;
+            color: white;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 58, 138, 0.85);
+            z-index: 0;
+        }
+        
+        .about-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .whatsapp-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            font-size: 28px;
+            transition: all 0.3s;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        @media (max-width: 640px) {
+            .about-container {
+                padding: 1.5rem;
+            }
+            
+            .about-section {
+                padding: 1rem;
+                align-items: flex-start;
+            }
+            
+            body {
+                background-attachment: scroll;
+            }
+            
+            .whatsapp-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Fixo -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Ícone de Voltar -->
+                <a href="./te.html" class="text-white hover:text-blue-200 transition-colors p-1">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                
+                <!-- Título e Subtítulo Centralizados -->
+                <div class="text-center mx-4 flex-1">
+                    <h1 class="text-xl font-bold text-white">WRATEC</h1>
+                    <p class="text-xs text-blue-100 mt-1">Soluções em Treinamentos</p>
+                </div>
+                
+                <!-- Espaço vazio para balancear -->
+                <div class="w-5"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Sobre Nós -->
+    <section class="about-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="about-container">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white text-center md:text-left">Sobre Nós</h1>
+                
+                <div class="text-blue-100 space-y-4">
+                    <p>
+                        Eu sou Wilson, diretor da WRATEC. Especialista em Segurança
+                        do Trabalho com mais de 15 anos de experiência, instrutor credenciado
+                        para cursos de NRs (10, 33, 35), Bombeiro Civil profissional e
+                        socorrista.
+                    </p>
+                    
+                    <p>
+                        Nossa escola oferece cursos profissionalizantes com certificação 
+                        válida em todo território nacional. Com carga horária de 200 horas, 
+                        nossas formações são cuidadosamente elaboradas para combinar teoria 
+                        e prática, preparando você para o mercado de trabalho.
+                    </p>
+                    
+                    <p class="mb-8">
+                        Acompanho pessoalmente todos os instrutores para garantir a 
+                        excelência no ensino e a qualidade dos nossos cursos, que são 
+                        reconhecidos no mercado por sua abordagem prática e atualizada.
+                    </p>
+                    
+                    <div class="flex flex-col items-center space-y-2">
+                        <a href="https://wa.me/5581991152307" target="_blank" class="whatsapp-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <p class="text-sm text-blue-200 text-center">
+                            Clique para conversar no WhatsApp
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
