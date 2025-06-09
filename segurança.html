@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança do Trabalho | WRATEC</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 80px;
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .course-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+        }
+        
+        .module-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .module-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-card {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3);
+        }
+        
+        .badge {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+        }
+
+        /* Estilos do Certificado */
+        .certificate-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .certificate-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .certificate-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+        }
+        
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .certificate-logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .certificate-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .certificate-subtitle {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .certificate-body {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .certificate-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 30px;
+        }
+        
+        .certificate-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #1e3a8a;
+            margin: 30px 0;
+            padding: 15px 0;
+            border-top: 2px solid #e5e7eb;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .certificate-course {
+            font-size: 22px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+        
+        .certificate-details {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .certificate-detail-item {
+            text-align: center;
+            margin: 10px;
+        }
+        
+        .detail-title {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .signature-block {
+            text-align: center;
+            width: 45%;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #9ca3af;
+            width: 200px;
+            margin: 0 auto 10px;
+            padding-top: 15px;
+        }
+        
+        .signature-name {
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .signature-title {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .certificate-seal {
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            width: 100px;
+            opacity: 0.8;
+        }
+        
+        .certificate-number {
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        @media (max-width: 768px) {
+            .certificate-content {
+                padding: 30px;
+            }
+            
+            .certificate-title {
+                font-size: 28px;
+            }
+            
+            .certificate-name {
+                font-size: 24px;
+            }
+            
+            .certificate-footer {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .signature-block {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .flex-col-mobile {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Header Fixo -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Ícone de Voltar -->
+                <a href="cursos.html" class="text-white hover:text-blue-200 transition-colors p-1">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                
+                <!-- Título e Subtítulo Centralizados -->
+                <div class="text-center mx-4 flex-1">
+                    <h1 class="text-xl font-bold text-white">WRATEC</h1>
+                    <p class="text-xs text-blue-100 mt-1">Soluções em Treinamentos</p>
+                </div>
+                
+                <!-- Espaço vazio para balancear -->
+                <div class="w-5"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero-section py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Curso de Segurança do Trabalho</h1>
+                <p class="text-xl text-blue-100 mb-8">Formação completa com 200h e certificado válido em todo território nacional</p>
+                
+                <div class="course-highlight inline-flex items-center px-6 py-3 rounded-full mb-8">
+                    <i data-lucide="award" class="w-6 h-6 mr-2"></i>
+                    <span>Certificado Reconhecido pelo MEC</span>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                            <h3 class="font-bold">Carga Horária</h3>
+                        </div>
+                        <p>200 horas</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+                            <h3 class="font-bold">Modalidades</h3>
+                        </div>
+                        <p>Presencial e EAD</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+                            <h3 class="font-bold">Duração</h3>
+                        </div>
+                        <p>2 a 3 meses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Sobre o Curso -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">O que você vai aprender</h2>
+                <p class="text-lg mb-8 text-center">
+                    O curso de Segurança do Trabalho da WRATEC prepara você para identificar, avaliar e controlar situações de risco, garantindo ambientes de trabalho seguros e saudáveis.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="check-circle" class="w-6 h-6 mr-2 text-green-500"></i>
+                            Benefícios do Curso
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Certificado válido em todo Brasil</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Material didático completo</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Instrutores com experiência de mercado</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Aulas teóricas e práticas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="briefcase" class="w-6 h-6 mr-2 text-blue-500"></i>
+                            Mercado de Trabalho
+                        </h3>
+                        <p class="mb-4">
+                            O profissional de Segurança do Trabalho é essencial em empresas de todos os portes e segmentos, com alta demanda no mercado.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="font-medium text-blue-800">
+                                Média salarial: R$ 2.500 a R$ 5.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade do Curso -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Grade Curricular Completa</h2>
+                
+                <div class="space-y-4">
+                    <!-- Módulo 1 -->
+                    <div class="module-card bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="badge px-3 py-1 rounded-full mr-3">Módulo 1</span>
+                            Introdução à Segurança do Trabalho
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>História e legislação da segurança do trabalho</li>
+                            <li>Normas Regulamentadoras (NRs) básicas</li>
+                            <li>Conceitos de acidente e doença ocupacional</li>
+                            <li>Mapa de riscos ambientais</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Módulo 2 -->
+                    <div class="module-card bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="badge px-3 py-1 rounded-full mr-3">Módulo 2</span>
+                            Prevenção e Controle de Riscos
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Equipamentos de Proteção Individual (EPI)</li>
+                            <li>Equipamentos de Proteção Coletiva (EPC)</li>
+                            <li>Prevenção de incêndios e primeiros socorros</li>
+                            <li>Ergonomia no ambiente de trabalho</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Módulo 3 -->
+                    <div class="module-card bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="badge px-3 py-1 rounded-full mr-3">Módulo 3</span>
+                            Gestão em Segurança do Trabalho
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Programas de prevenção (PPRA, PCMSO)</li>
+                            <li>Investigação e análise de acidentes</li>
+                            <li>Estatísticas e indicadores de segurança</li>
+                            <li>Treinamentos e campanhas de prevenção</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Módulo 4 -->
+                    <div class="module-card bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="badge px-3 py-1 rounded-full mr-3">Módulo 4</span>
+                            Práticas Profissionais
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Visitas técnicas a empresas</li>
+                            <li>Elaboração de documentos técnicos</li>
+                            <li>Simulação de situações reais</li>
+                            <li>Projeto final aplicado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modalidades e Investimento -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Modalidades e Investimento</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Presencial -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="home" class="w-6 h-6 mr-2 text-blue-500"></i>
+                            Presencial
+                        </h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Aulas práticas em laboratório</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Interação direta com instrutores</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Material físico incluso</span>
+                            </li>
+                        </ul>
+                        <div class="price-card text-white p-6 rounded-lg">
+                            <p class="text-sm mb-1">Investimento</p>
+                            <p class="text-3xl font-bold mb-2">R$ 1.200,00</p>
+                            <p class="text-sm opacity-90">ou 12x de R$ 120,00</p>
+                        </div>
+                    </div>
+                    
+                    <!-- EAD -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i data-lucide="monitor" class="w-6 h-6 mr-2 text-blue-500"></i>
+                            EAD (Online)
+                        </h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Flexibilidade de horários</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Acesso à plataforma 24h</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                                <span>Material digital completo</span>
+                            </li>
+                        </ul>
+                        <div class="price-card text-white p-6 rounded-lg">
+                            <p class="text-sm mb-1">Investimento</p>
+                            <p class="text-3xl font-bold mb-2">R$ 900,00</p>
+                            <p class="text-sm opacity-90">ou 12x de R$ 90,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificação -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Certificação</h2>
+                
+                <!-- Modelo de Certificado Moderno -->
+                <div class="certificate-container">
+                    <div class="certificate-background"></div>
+                    
+                    <div class="certificate-content">
+                        <div class="certificate-header">
+                            <div class="certificate-logo">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="60" cy="60" r="55" fill="#1e3a8a"/>
+                                    <path d="M40 40L80 40L80 80L40 80L40 40Z" stroke="white" stroke-width="4"/>
+                                    <path d="M50 50L70 50L70 70L50 70L50 50Z" stroke="white" stroke-width="4"/>
+                                    <text x="60" y="100" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">WRATEC</text>
+                                </svg>
+                            </div>
+                            <h1 class="certificate-title">Certificado de Conclusão</h1>
+                            <p class="certificate-subtitle">Reconhecido em todo território nacional</p>
+                        </div>
+                        
+                        <div class="certificate-body">
+                            <p class="certificate-text">
+                                Certificamos que
+                            </p>
+                            
+                            <h2 class="certificate-name">FULANO DA SILVA</h2>
+                            
+                            <p class="certificate-text">
+                                concluiu com êxito o curso de
+                            </p>
+                            
+                            <h3 class="certificate-course">Segurança do Trabalho</h3>
+                            
+                            <p class="certificate-text">
+                                com carga horária de 200 horas, realizado na WRATEC - Soluções em Treinamentos, 
+                                cumprindo todos os requisitos necessários para a obtenção deste certificado.
+                            </p>
+                        </div>
+                        
+                        <div class="certificate-details">
+                            <div class="certificate-detail-item">
+                                <p class="detail-title">Data de Conclusão</p>
+                                <p class="detail-value">09 de Junho de 2025</p>
+                            </div>
+                            
+                            <div class="certificate-detail-item">
+                                <p class="detail-title">Carga Horária</p>
+                                <p class="detail-value">200 horas</p>
+                            </div>
+                            
+                            <div class="certificate-detail-item">
+                                <p class="detail-title">Modalidade</p>
+                                <p class="detail-value">Presencial</p>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-footer">
+                            <div class="signature-block">
+                                <div class="signature-line"></div>
+                                <p class="signature-name">Wilson Reis</p>
+                                <p class="signature-title">Diretor Executivo</p>
+                                <p class="signature-title">WRATEC</p>
+                            </div>
+                            
+                            <div class="signature-block">
+                                <div class="signature-line"></div>
+                                <p class="signature-name">Coordenação Acadêmica</p>
+                                <p class="signature-title">WRATEC</p>
+                            </div>
+                        </div>
+                        
+                        
+                        <p class="certificate-number">
+                            Certificado Nº: WR2025-0001 | Registro: 2025.0001.00001
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section>
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Pronto para dar o próximo passo na sua carreira?</h2>
+                <p class="text-lg mb-8">
+                    Garanta já sua vaga no curso de Segurança do Trabalho e esteja preparado para o mercado!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/5581991152307" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center transition">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i> Matricule-se via WhatsApp
+                    </a>
+                    <a href="tel:+5581991152307" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center transition">
+                        <i class="fas fa-phone mr-2"></i> Ligar para a Escola
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
