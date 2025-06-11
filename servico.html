@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - WRATEC</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 80px;
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .partner-card {
+            border-left: 4px solid #10b981;
+        }
+        
+        .badge {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+        }
+        
+        .partner-badge {
+            background-color: #d1fae5;
+            color: #047857;
+        }
+        
+        /* Estilos adicionados para a imagem */
+        .partner-logo-container {
+            flex: 0 0 auto;
+            min-width: 96px; /* Tamanho mínimo */
+            max-width: 150px; /* Tamanho máximo */
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .partner-logo {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1; /* Mantém proporção quadrada */
+            object-fit: contain; /* Garante que a imagem inteira seja visível */
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Header Fixo -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Ícone de Voltar -->
+                <a href="index.html" class="text-white hover:text-blue-200 transition-colors p-1">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                
+                <!-- Título e Subtítulo Centralizados -->
+                <div class="text-center mx-4 flex-1">
+                    <h1 class="text-xl font-bold text-white">WRATEC</h1>
+                    <p class="text-xs text-blue-100 mt-1">Soluções em Treinamentos</p>
+                </div>
+                
+                <!-- Espaço vazio para balancear -->
+                <div class="w-5"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero-section py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h1>
+                <p class="text-xl text-blue-100 mb-8">Treinamentos especializados e soluções técnicas em segurança do trabalho</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Nossos Treinamentos -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Treinamentos e Palestras</h2>
+                <p class="text-lg mb-8 text-center">
+                    Capacitação prática e atualizada para garantir segurança e conformidade nas operações da sua empresa.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Treinamento 1 -->
+                    <div class="service-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-lucide="shield" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">NRs - Normas Regulamentadoras</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>NR-10 (Segurança em Instalações Elétricas)</li>
+                            <li>NR-35 (Trabalho em Altura)</li>
+                            <li>NR-33 (Espaços Confinados)</li>
+                            <li>NR-12 (Segurança em Máquinas e Equipamentos)</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge px-3 py-1 rounded-full text-sm">Presencial ou EAD</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Treinamento 2 -->
+                    <div class="service-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-lucide="heart-pulse" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Primeiros Socorros</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Suporte Básico de Vida</li>
+                            <li>Atendimento pré-hospitalar</li>
+                            <li>Emergências clínicas e traumáticas</li>
+                            <li>Prevenção de acidentes</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge px-3 py-1 rounded-full text-sm">Com certificação válida</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Treinamento 3 -->
+                    <div class="service-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-lucide="flame" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Prevenção e Combate a Incêndios</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Teoria do fogo</li>
+                            <li>Classes de incêndio</li>
+                            <li>Métodos de extinção</li>
+                            <li>Prática com extintores</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge px-3 py-1 rounded-full text-sm">Com treinamento prático</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Treinamento 4 -->
+                    <div class="service-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Palestras Corporativas</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Conscientização em segurança</li>
+                            <li>Comportamento seguro no trabalho</li>
+                            <li>Prevenção de acidentes</li>
+                            <li>Diagnóstico de segurança</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="badge px-3 py-1 rounded-full text-sm">Personalizável</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços Técnicos em Parceria -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Laudos e Assessoria Técnica</h2>
+                <p class="text-lg mb-8 text-center">
+                    Em parceria com a <strong>SMS Perícia</strong>, oferecemos soluções completas em engenharia e segurança do trabalho
+                </p>
+                
+                <div class="bg-green-50 p-6 rounded-lg mb-8">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <!-- Contêiner da logo ajustado -->
+                        <div class="partner-logo-container">
+                            <img src="./image/sms.png" alt="SMS Perícia" class="partner-logo">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">SMS Perícia - Parceira WRATEC</h3>
+                            <p class="text-gray-700">
+                                Empresa especializada em soluções integradas nas áreas de engenharia, perícia, legalização e segurança do trabalho, garantindo conformidade legal e excelência técnica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Serviço 1 -->
+                    <div class="partner-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-lucide="file-text" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Laudos Técnicos</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Laudo de Insalubridade e Periculosidade</li>
+                            <li>Laudo Técnico das Condições Ambientais (LTCAT)</li>
+                            <li>Laudo de Avaliação de Ruído Ocupacional</li>
+                            <li>Laudo de Inspeção Elétrica</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="partner-badge px-3 py-1 rounded-full text-sm">Emissão rápida</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Serviço 2 -->
+                    <div class="partner-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-lucide="clipboard-check" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Programas Obrigatórios</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>PPRA (Programa de Prevenção de Riscos Ambientais)</li>
+                            <li>PCMSO (Programa de Controle Médico de Saúde Ocupacional)</li>
+                            <li>PGR (Programa de Gerenciamento de Riscos)</li>
+                            <li>PCA (Programa de Conservação Auditiva)</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="partner-badge px-3 py-1 rounded-full text-sm">Conforme legislação</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Serviço 3 -->
+                    <div class="partner-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-lucide="home" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Regularizações</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Regularização de edificações</li>
+                            <li>Regularização junto ao Corpo de Bombeiros</li>
+                            <li>Licenças ambientais</li>
+                            <li>Regularização de projetos</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="partner-badge px-3 py-1 rounded-full text-sm">Atendimento multisetorial</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Serviço 4 -->
+                    <div class="partner-card bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i data-lucide="search" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Perícias Técnicas</h3>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li>Perícia de acidentes de trabalho</li>
+                            <li>Avaliação de estruturas</li>
+                            <li>Perícia ambiental</li>
+                            <li>Vistoria técnica</li>
+                        </ul>
+                        <div class="mt-4">
+                            <span class="partner-badge px-3 py-1 rounded-full text-sm">Laudo pericial</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow mt-8">
+                    <h3 class="text-xl font-bold mb-4 text-center">Por que escolher nossos serviços técnicos?</h3>
+                    <ul class="grid md:grid-cols-2 gap-4">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                            <span>Atendimento personalizado e humanizado</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                            <span>Rápida emissão de documentos e laudos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                            <span>Equipe técnica qualificada e experiente</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500 mt-0.5"></i>
+                            <span>Soluções sob medida para cada segmento</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section>
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">Solicite um orçamento</h2>
+                <p class="text-lg mb-8">
+                    Entre em contato para conhecer nossos pacotes e soluções personalizadas para sua empresa
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/5581991152307" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center transition">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp
+                    </a>
+                    <a href="tel:+5581991152307" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center transition">
+                        <i class="fas fa-phone mr-2"></i> Ligar Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
