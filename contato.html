@@ -13,6 +13,8 @@
         :root {
             --primary: #2563eb;
             --primary-dark: #1e3a8a;
+            --instagram: #E1306C;
+            --text-dark: #1f2937;
         }
         
         body {
@@ -89,9 +91,16 @@
             padding: 12px 16px;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             transition: all 0.3s;
             font-size: 15px;
+            color: var(--text-dark);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+            opacity: 0.7;
         }
         
         .form-group input:focus,
@@ -102,9 +111,31 @@
             background: white;
         }
         
+        .courses-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .course-category {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .course-category h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #e5e7eb;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+        
         .course-options {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 10px;
         }
         
@@ -112,9 +143,10 @@
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-radius: 6px;
             transition: all 0.2s;
+            cursor: pointer;
         }
         
         .course-option:hover {
@@ -124,12 +156,15 @@
         .course-option input {
             width: auto;
             margin-right: 8px;
+            cursor: pointer;
         }
         
         .course-option label {
             margin-bottom: 0;
             color: white;
             font-weight: 400;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
         
         .action-buttons {
@@ -151,6 +186,7 @@
             color: white;
             text-decoration: none;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .whatsapp-btn {
@@ -159,6 +195,10 @@
         
         .phone-btn {
             background: #3b82f6;
+        }
+        
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C);
         }
         
         .action-btn:hover {
@@ -174,7 +214,7 @@
             }
             
             .course-options {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             
             .contact-info, .contact-form {
@@ -238,69 +278,86 @@
                     <form id="contactForm">
                         <div class="space-y-4">
                             <div class="form-group">
-                                <label for="name">Seu Nome Completo</label>
-                                <input type="text" id="name" name="name" required>
+                                <label for="name">Nome completo</label>
+                                <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Seu Melhor Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">WhatsApp (com DDD)</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone" required placeholder="(81) 98765-4321">
                             </div>
 
                             <div class="form-group">
                                 <label>Selecione os cursos de interesse:</label>
-                                <div class="course-options mt-3">
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-nr10" name="courses" value="NR10">
-                                        <label for="course-nr10">NR10</label>
+                                <div class="courses-container">
+                                    <div class="course-category">
+                                        <h4>Normas Regulamentadoras</h4>
+                                        <div class="course-options">
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-nr10" name="courses" value="NR10">
+                                                <label for="course-nr10">NR10</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-nr33" name="courses" value="NR33">
+                                                <label for="course-nr33">NR33</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-nr35" name="courses" value="NR35">
+                                                <label for="course-nr35">NR35</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-nr33" name="courses" value="NR33">
-                                        <label for="course-nr33">NR33</label>
+                                    
+                                    <div class="course-category">
+                                        <h4>Segurança e Resgate</h4>
+                                        <div class="course-options">
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-socorrista" name="courses" value="Socorrista/Resgatista">
+                                                <label for="course-socorrista">Socorrista/Resg...</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-bombeiro" name="courses" value="Atualização de Bombeiro Civil">
+                                                <label for="course-bombeiro">Atualização Bombeiro Civil</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-seguranca" name="courses" value="Segurança do Trabalho">
+                                                <label for="course-seguranca">Segurança do Trabalho</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-nr35" name="courses" value="NR35">
-                                        <label for="course-nr35">NR35</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-socorrista" name="courses" value="Socorrista">
-                                        <label for="course-socorrista">Socorrista</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-bombeiro" name="courses" value="Bombeiro Civil">
-                                        <label for="course-bombeiro">Bombeiro</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-seguranca" name="courses" value="Segurança">
-                                        <label for="course-seguranca">Seg. Trabalho</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-eletricista" name="courses" value="Eletricista">
-                                        <label for="course-eletricista">Eletricista</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-pedreiro" name="courses" value="Pedreiro">
-                                        <label for="course-pedreiro">Pedreiro</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-refrigeracao" name="courses" value="Refrigeração">
-                                        <label for="course-refrigeracao">Refrigeração</label>
-                                    </div>
-                                    <div class="course-option">
-                                        <input type="checkbox" id="course-pintor" name="courses" value="Pintor">
-                                        <label for="course-pintor">Pintor</label>
+                                    
+                                    <div class="course-category">
+                                        <h4>Cursos Profissionalizantes</h4>
+                                        <div class="course-options">
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-eletricista" name="courses" value="Eletricista">
+                                                <label for="course-eletricista">Eletricista</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-pedreiro" name="courses" value="Pedreiro">
+                                                <label for="course-pedreiro">Pedreiro</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-refrigeracao" name="courses" value="Refrigeração">
+                                                <label for="course-refrigeracao">Refrigeração</label>
+                                            </div>
+                                            <div class="course-option">
+                                                <input type="checkbox" id="course-pintor" name="courses" value="Pintor">
+                                                <label for="course-pintor">Pintor</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Mensagem ou Dúvidas</label>
-                                <textarea id="message" name="message" rows="4" required></textarea>
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Digite sua mensagem ou dúvidas aqui..."></textarea>
                             </div>
 
                             <!-- Botões de Ação -->
@@ -308,8 +365,11 @@
                                 <div id="whatsappBtn" class="action-btn whatsapp-btn hidden">
                                     <i class="fab fa-whatsapp"></i>
                                 </div>
-                                <a href="tel:+5581991152307" class="action-btn phone-btn">
+                                <a href="tel:+5581989690737" class="action-btn phone-btn">
                                     <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="https://www.instagram.com/instrutor_wilson.reis/" target="_blank" class="action-btn instagram-btn">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
@@ -322,15 +382,15 @@
                     <div class="space-y-5">
                         <p class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1"></i>
-                            <span>Rua Golfinho, Quadra C 19, Nº 31 - Ouro Preto, Olinda - PE</span>
+                            <span>Rua nove de maio, 20 cajueiro seco Jaboatão dos Guararapes PE.</span>
                         </p>
                         <p class="flex items-center">
                             <i class="fas fa-phone"></i>
-                            <span>(81) 991152307</span>
+                            <span>(81) 989690737</span>
                         </p>
                         <p class="flex items-center">
                             <i class="fas fa-envelope"></i>
-                            <span>contato@escolatecwilson.com.br</span>
+                            <span> wr.alcatantar.ss@gmail.com</span>
                         </p>
                         <p class="flex items-center">
                             <i class="fas fa-clock"></i>
@@ -347,7 +407,7 @@
     </section>
 
     <script>
-        window.onload = () => {
+        window.onload = () => 
             lucide.createIcons();
             
             // Função para gerar mensagem do WhatsApp
@@ -356,45 +416,56 @@
                 const phone = formData.get('phone');
                 const email = formData.get('email');
                 const message = formData.get('message');
-                const courses = Array.from(formData.getAll('courses')).join(', ');
+                const courses = Array.from(formData.getAll('courses'));
                 
-                return `Olá, meu nome é ${name}!\n\n` +
-                       `Estou interessado nos cursos: ${courses}\n\n` +
-                       `${message}\n\n` +
-                       `Meus dados para contato:\n` +
-                       `WhatsApp: ${phone}\n` +
-                       `Email: ${email}`;
+                let messageText = `Olá, meu nome é ${name}!\n\n`;
+                
+                if (courses.length > 0) {
+                    messageText += `Estou interessado nos seguintes cursos:\n`;
+                    messageText += `• ${courses.join('\n• ')}\n\n`;
+                } else {
+                    messageText += `Gostaria de informações sobre os cursos disponíveis\n\n`;
+                }
+                
+                messageText += `${message}\n\n` +
+                               `Meus dados para contato:\n` +
+                               ` WhatsApp: ${phone}\n` +
+                               ` Email: ${email}`;
+                
+                return messageText;
             }
             
             // Configurar botão do WhatsApp
-            document.getElementById('contactForm').addEventListener('input', function() {
-                const form = this;
-                const formData = new FormData(form);
-                const requiredFields = ['name', 'phone', 'email', 'message'];
-                const isFormValid = requiredFields.every(field => formData.get(field));
-                
-                if (isFormValid) {
-                    const whatsappMessage = generateWhatsAppMessage(formData);
-                    const encodedMessage = encodeURIComponent(whatsappMessage);
-                    const whatsappBtn = document.getElementById('whatsappBtn');
-                    
-                    // Atualizar link do WhatsApp
-                    whatsappBtn.onclick = () => {
-                        window.open(`https://wa.me/5581991152307?text=${encodedMessage}`, '_blank');
-                    };
-                    
-                    // Mostrar botão do WhatsApp
-                    whatsappBtn.classList.remove('hidden');
-                } else {
-                    document.getElementById('whatsappBtn').classList.add('hidden');
-                }
-            });
+document.getElementById('contactForm').addEventListener('input', function() {
+    const form = this;
+    const formData = new FormData(form);
+    const requiredFields = ['name', 'phone', 'email', 'message'];
+    const isFormValid = requiredFields.every(field => formData.get(field));
+    
+    if (isFormValid) {
+        const whatsappMessage = generateWhatsAppMessage(formData);
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        
+        // Atualizar link do WhatsApp
+        whatsappBtn.onclick = () => {
+            window.open(`https://wa.me/5581989690737?text=${encodedMessage}`, '_blank');
             
-            // Validação do telefone
-            document.getElementById('phone').addEventListener('input', function(e) {
-                this.value = this.value.replace(/\D/g, '');
-            });
+            // Limpar o formulário após o envio
+            form.reset(); // Esta linha limpa todos os campos
+            
+            // Esconder o botão do WhatsApp novamente
+            whatsappBtn.classList.add('hidden');
+            
+           
         };
+        
+        // Mostrar botão do WhatsApp
+        whatsappBtn.classList.remove('hidden');
+    } else {
+        document.getElementById('whatsappBtn').classList.add('hidden');
+    }
+});
     </script>
 </body>
 </html>

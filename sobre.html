@@ -70,14 +70,13 @@
             margin: 0 auto;
         }
         
-        .whatsapp-icon {
+        .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: #25D366;
             color: white;
             font-size: 28px;
             transition: all 0.3s;
@@ -85,9 +84,31 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .whatsapp-icon:hover {
+        .whatsapp-icon {
+            background: #25D366;
+        }
+        
+        .instagram-icon {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+        }
+        
+        .social-icon:hover {
             transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-label {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #bfdbfe;
         }
         
         @media (max-width: 640px) {
@@ -104,10 +125,16 @@
                 background-attachment: scroll;
             }
             
-            .whatsapp-icon {
+            .social-icon {
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
+            }
+            
+            .social-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
         }
     </style>
@@ -145,14 +172,14 @@
                     <p>
                         Eu sou Wilson, diretor da WRATEC. Especialista em Segurança
                         do Trabalho com mais de 15 anos de experiência, instrutor credenciado
-                        para cursos de NRs (10, 33, 35), Bombeiro Civil profissional e
-                        socorrista.
+                        para cursos de capacitação e aperfeiçoamento profissional.
+                        
                     </p>
                     
                     <p>
                         Nossa escola oferece cursos profissionalizantes com certificação 
-                        válida em todo território nacional. Com carga horária de 200 horas, 
-                        nossas formações são cuidadosamente elaboradas para combinar teoria 
+                        válida em todo território nacional.
+                        Nossas formações são cuidadosamente elaboradas para combinar teoria 
                         e prática, preparando você para o mercado de trabalho.
                     </p>
                     
@@ -162,13 +189,24 @@
                         reconhecidos no mercado por sua abordagem prática e atualizada.
                     </p>
                     
-                    <div class="flex flex-col items-center space-y-2">
-                        <a href="https://wa.me/5581991152307" target="_blank" class="whatsapp-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <p class="text-sm text-blue-200 text-center">
-                            Clique para conversar no WhatsApp
-                        </p>
+                    <div class="social-container">
+                        <div class="social-item">
+                            <a href="https://wa.me/5581989690737" target="_blank" class="social-icon whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <p class="social-label">
+                                WhatsApp
+                            </p>
+                        </div>
+                        
+                        <div class="social-item">
+                            <a href="https://www.instagram.com/instrutor_wilson.reis/" target="_blank" class="social-icon instagram-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <p class="social-label">
+                                Instagram
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
