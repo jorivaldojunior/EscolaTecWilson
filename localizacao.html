@@ -126,10 +126,10 @@
                 Venha nos visitar em nossa sede em Jaboatão dos Guararapes - PE
             </p>
 
-            <!-- Mapa via Iframe (não requer API key) -->
+            <!-- Mapa via Iframe com coordenadas exatas -->
             <div id="map-container" class="mb-12">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.123456789012!2d-34.90000000000001!3d-8.100000000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDYnMDAuMCJTIDM0wrA1NCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.322389483861!2d-34.9364349246835!3d-8.169865781487108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aae1c3a149c5a5%3A0x5e3d5f5a5e3d5f5a!2sRua%20Nove%20de%20Maio%2C%2020%20-%20Cajueiro%20Seco%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2054310-000!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
@@ -234,8 +234,44 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Página de localização carregada');
             
-            // Você pode adicionar aqui a lógica para carregar um mapa mais preciso
-            // usando as coordenadas exatas do endereço se necessário
+            // Coordenadas exatas da WRATEC (Rua Nove de Maio, 20)
+            const companyLocation = {
+                lat: -8.169866,
+                lng: -34.936435
+            };
+            
+            // Função para abrir o mapa no aplicativo nativo do dispositivo
+            function openInMaps() {
+                if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    // Dispositivos móveis
+                    window.open(`geo:${companyLocation.lat},${companyLocation.lng}?q=Rua+Nove+de+Maio,+20+Cajueiro+Seco`);
+                } else {
+                    // Desktop
+                    window.open(`https://www.google.com/maps?q=${companyLocation.lat},${companyLocation.lng}`);
+                }
+            }
+            
+            // Adicionar botão para abrir no aplicativo de mapas
+            const mapContainer = document.getElementById('map-container');
+            const openMapBtn = document.createElement('button');
+            openMapBtn.innerHTML = '<i class="fas fa-external-link-alt mr-2"></i> Abrir no aplicativo de mapas';
+            openMapBtn.className = 'mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center mx-auto';
+            openMapBtn.onclick = openInMaps;
+            mapContainer.parentNode.insertBefore(openMapBtn, mapContainer.nextSibling);
+            
+            // Adicionar link de direções
+            const directionsLink = document.createElement('a');
+            directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${companyLocation.lat},${companyLocation.lng}`;
+            directionsLink.target = '_blank';
+            directionsLink.innerHTML = '<i class="fas fa-directions mr-2"></i> Obter direções';
+            directionsLink.className = 'mt-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center mx-auto';
+            
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.className = 'flex flex-col md:flex-row gap-4 justify-center';
+            buttonsContainer.appendChild(openMapBtn);
+            buttonsContainer.appendChild(directionsLink);
+            
+            mapContainer.parentNode.insertBefore(buttonsContainer, mapContainer.nextSibling);
         });
     </script>
 </body>
