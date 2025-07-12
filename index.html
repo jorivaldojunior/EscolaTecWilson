@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página Inicial</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,39 +16,68 @@
     }
   </style>
 </head>
-<body class="bg-white min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
 
-  <!-- Container principal -->
-  <div class="text-center w-full max-w-4xl relative">
+  <!-- 🎥 Vídeo de fundo - Exemplo do Pexels -->
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <source src="./video/video1.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+
+  <!-- 🟤 Camada escura sobre o vídeo -->
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
+
+  <!-- 🟡 Conteúdo da página -->
+  <div class="text-center w-full max-w-4xl relative z-20">
 
     <!-- Logo -->
     <div class="mb-8 sm:mb-10 md:mb-12 flex justify-center">
       <img 
-        src="./image/logo8.png" 
+        src="./image/2.png" 
         alt="Logo WRATEC"
         class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px]"
       />
     </div>
 
-    <!-- Seta gigante clicável (apenas em telas grandes) -->
+    <!-- Seta grande clicável (apenas em telas grandes) -->
     <a href="./index1.html" class="hidden lg:block absolute top-1/2 right-8 transform -translate-y-1/2 group">
       <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
         <i data-lucide="chevron-right" class="w-20 h-20"></i>
-        
       </div>
     </a>
 
-    <!-- Seta para mobile (mesmo estilo da grande) -->
+    <!-- Seta para mobile -->
     <a href="./index1.html" class="lg:hidden mx-auto mt-6 block group w-fit">
       <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
         <i data-lucide="chevron-right" class="w-20 h-20"></i>
-       
       </div>
     </a>
 
   </div>
 
   <script>
+    // Script para garantir que o vídeo comece a tocar
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.querySelector('video');
+      
+      // Tenta reproduzir o vídeo
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Reprodução automática prevenida:', error);
+          // Mostra controles se autoplay falhar
+          video.controls = true;
+        });
+      }
+    });
+    
+    // Inicializa ícones
     lucide.createIcons();
   </script>
 
