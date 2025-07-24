@@ -13,61 +13,72 @@
     }
   </style>
 </head>
-<body class="bg-white min-h-screen flex flex-col items-center justify-center px-10 py-10">
+<body class="min-h-screen flex flex-col items-center justify-center px-10 py-10 relative overflow-hidden">
 
-  
-  <!-- ÍCONES DE NAVEGAÇÃO -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-center">
+  <!-- 🖼️ Imagem de fundo -->
+  <div 
+    class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+    style="background-image: url('./image/banner10.jpg')">
+  </div>
 
-    <!-- Início -->
-    <a href="index.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="home" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Início</span>
-    </a>
+  <!-- 🟤 Camada escura sobre a imagem -->
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
 
-    <!-- Sobre -->
-    <a href="sobre.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="info" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Sobre</span>
-    </a>
+  <!-- Conteúdo principal (relativo para ficar acima da imagem de fundo) -->
+  <div class="relative z-20 w-full">
 
-    <!-- Cursos -->
-    <a href="cursos.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="graduation-cap" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Cursos</span>
-    </a>
+    <!-- ÍCONES DE NAVEGAÇÃO -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-center">
 
-    <!-- Contato -->
-    <a href="contato.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="mail" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Contato</span>
-    </a>
+      <!-- Início -->
+      <a href="index.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="home" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Início</span>
+      </a>
 
-    <!-- Localização -->
-    <a href="localizacao.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="map-pin" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Localização</span>
-    </a>
+      <!-- Sobre -->
+      <a href="sobre.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="info" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Sobre</span>
+      </a>
 
-    <!-- Serviço -->
-    <a href="servico.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="settings" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Serviço</span>
-    </a>
+      <!-- Cursos -->
+      <a href="cursos.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="graduation-cap" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Cursos</span>
+      </a>
 
-    <!-- Área do Aluno -->
-    <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
-      <i data-lucide="user" class="lucide w-14 h-14 text-blue-700"></i>
-      <span class="mt-2 text-sm font-medium text-blue-500">Em breve</span>
-    </a>
+      <!-- Contato -->
+      <a href="contato.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="mail" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Contato</span>
+      </a>
 
-    <!-- Galeria -->
-    <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
-    <i data-lucide="image" class="lucide w-14 h-14 text-blue-700"></i>
-    <span class="mt-2 text-sm font-medium text-blue-500">Em breve</span>
-    </a>
+      <!-- Localização -->
+      <a href="localizacao.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="map-pin" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Localização</span>
+      </a>
 
+      <!-- Serviço -->
+      <a href="servico.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="settings" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Serviço</span>
+      </a>
 
+      <!-- Área do Aluno -->
+      <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="user" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Em breve</span>
+      </a>
+
+      <!-- Galeria -->
+      <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
+        <i data-lucide="image" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
+        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Em breve</span>
+      </a>
+
+    </div>
   </div>
 
   <script>
