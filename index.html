@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -18,18 +19,13 @@
 </head>
 <body class="min-h-screen flex items-center justify-center relative overflow-hidden">
 
-  <!-- 🎥 Vídeo de fundo - Exemplo do Pexels -->
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    class="absolute top-0 left-0 w-full h-full object-cover z-0">
-    <source src="./video/video1.mp4" type="video/mp4">
-    Seu navegador não suporta vídeos HTML5.
-  </video>
+  <!-- 🖼️ Imagem de fundo -->
+  <div 
+    class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+    style="background-image: url('./image/banner10.jpg')">
+  </div>
 
-  <!-- 🟤 Camada escura sobre o vídeo -->
+  <!-- 🟤 Camada escura sobre a imagem -->
   <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
 
   <!-- 🟡 Conteúdo da página -->
@@ -61,22 +57,6 @@
   </div>
 
   <script>
-    // Script para garantir que o vídeo comece a tocar
-    document.addEventListener('DOMContentLoaded', function() {
-      const video = document.querySelector('video');
-      
-      // Tenta reproduzir o vídeo
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log('Reprodução automática prevenida:', error);
-          // Mostra controles se autoplay falhar
-          video.controls = true;
-        });
-      }
-    });
-    
     // Inicializa ícones
     lucide.createIcons();
   </script>
