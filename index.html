@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -8,12 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    @keyframes pulse-right {
-      0%, 100% { transform: translateX(0) scale(1); }
-      50% { transform: translateX(15px) scale(1.1); }
+    @keyframes float-horizontal {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
     }
-    .animate-pulse-right {
-      animation: pulse-right 1.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    .animate-float-horizontal {
+      animation: float-horizontal 3s infinite ease-in-out;
+    }
+    .logo-clickable {
+      transition: transform 0.3s ease;
+    }
+    .logo-clickable:hover {
+      transform: scale(1.05);
+      cursor: pointer;
     }
   </style>
 </head>
@@ -31,33 +37,19 @@
   <!-- 🟡 Conteúdo da página -->
   <div class="text-center w-full max-w-4xl relative z-20">
 
-    <!-- Logo -->
-    <div class="mb-8 sm:mb-10 md:mb-12 flex justify-center">
+    <!-- Logo com animação e link -->
+    <a href="./index1.html" class="flex justify-center">
       <img 
         src="./image/logo3.png" 
         alt="Logo WRATEC"
-        class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px]"
+        class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px] animate-float-horizontal logo-clickable"
       />
-    </div>
-
-    <!-- Seta grande clicável (apenas em telas grandes) -->
-    <a href="./index1.html" class="hidden lg:block absolute top-1/2 right-8 transform -translate-y-1/2 group">
-      <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
-        <i data-lucide="chevron-right" class="w-20 h-20"></i>
-      </div>
-    </a>
-
-    <!-- Seta para mobile -->
-    <a href="./index1.html" class="lg:hidden mx-auto mt-6 block group w-fit">
-      <div class="text-[#F21B1B] animate-pulse-right hover:text-[#D91818] transition-colors">
-        <i data-lucide="chevron-right" class="w-20 h-20"></i>
-      </div>
     </a>
 
   </div>
 
   <script>
-    // Inicializa ícones
+    // Inicializa ícones (se necessário para outras partes do site)
     lucide.createIcons();
   </script>
 
