@@ -6,7 +6,35 @@
   <title>Página Inicial</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .background-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background-image: url('./image/banner10.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4);
+    }
+    
+    .overlay-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(15, 23, 42, 0.7);
+    }
+    
     @keyframes float-horizontal {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(20px); }
@@ -23,24 +51,19 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+<body class="min-h-screen flex items-center justify-center">
 
-  <!-- 🖼️ Imagem de fundo -->
-  <div 
-    class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
-    style="background-image: url('./image/banner10.jpg')">
-  </div>
+  <!-- Imagem de fundo com máscara igual ao primeiro código -->
+  <div class="background-layer"></div>
+  <div class="overlay-layer"></div>
 
-  <!-- 🟤 Camada escura sobre a imagem -->
-  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
-
-  <!-- 🟡 Conteúdo da página -->
-  <div class="text-center w-full max-w-4xl relative z-20">
+  <!-- Conteúdo da página -->
+  <div class="text-center w-full max-w-4xl relative z-10">
 
     <!-- Logo com animação e link -->
     <a href="./index1.html" class="flex justify-center">
       <img 
-        src="./image/logo3.png" 
+        src="./image/logo4.png" 
         alt="Logo WRATEC"
         class="w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[580px] animate-float-horizontal logo-clickable"
       />
@@ -49,8 +72,14 @@
   </div>
 
   <script>
-    // Inicializa ícones (se necessário para outras partes do site)
+    // Inicializa ícones
     lucide.createIcons();
+    
+    // Garante que o scroll funcione em mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    });
   </script>
 
 </body>
