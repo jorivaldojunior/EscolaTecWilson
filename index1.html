@@ -3,87 +3,201 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WRATEC - Menu Moderno</title>
+  <title>WRATEC - Cursos Profissionalizantes</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .icon-container:hover .lucide {
-      color: #2563eb; /* Azul WRATEC */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .icon-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .icon-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .icon-card .lucide {
+      transition: all 0.3s ease;
+    }
+    
+    .icon-card:hover .lucide {
+      color: #fff;
       transform: scale(1.1);
+    }
+    
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem; /* Reduzido para telas pequenas */
+    }
+    
+    .logo-img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+    
+    /* Tamanhos responsivos da logo */
+    .logo-img {
+      max-height: 220px; /* Mobile */
+    }
+    
+    @media (min-width: 640px) {
+      .logo-img {
+        max-height: 150px;
+      }
+      .logo-container {
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .logo-img {
+        max-height: 180px;
+      }
+      .logo-container {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .logo-img {
+        max-height: 200px;
+      }
+      .logo-container {
+        margin-bottom: 1.5rem; /* Reduzido em telas grandes */
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .logo-img {
+        max-height: 220px;
+      }
+      .logo-container {
+        margin-bottom: 1rem; /* Mínimo em telas muito grandes */
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .icon-card {
+        min-height: 80px;
+        padding: 0.75rem;
+      }
+      .logo-container {
+        margin-bottom: 0.5rem;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-10 py-10 relative overflow-hidden">
+<body class="min-h-screen flex flex-col items-center px-4 py-4 sm:py-8 relative overflow-hidden bg-gray-900">
 
-  <!-- 🖼️ Imagem de fundo -->
+  <!-- Imagem de fundo -->
   <div 
     class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
     style="background-image: url('./image/banner10.jpg')">
   </div>
-
-  <!-- 🟤 Camada escura sobre a imagem -->
+  
+  <!-- Camada escura sobre a imagem -->
   <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10"></div>
 
-  <!-- Conteúdo principal (relativo para ficar acima da imagem de fundo) -->
-  <div class="relative z-20 w-full">
+  <!-- Conteúdo principal -->
+  <div class="relative z-20 w-full max-w-5xl flex flex-col items-center">
 
-    <!-- ÍCONES DE NAVEGAÇÃO -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-center">
+    <!-- Logo centralizada no topo -->
+    <div class="logo-container">
+      <img 
+        src="./image/logo3.png" 
+        alt="Logo WRATEC"
+        class="logo-img"
+      />
+    </div>
 
+    <!-- Grade de navegação responsiva -->
+    <div class="grid grid-cols-4 sm:grid-cols-4 gap-3 sm:gap-4 w-full px-2">
       <!-- Início -->
-      <a href="index.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="home" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Início</span>
+      <a href="index.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="home" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Início</span>
       </a>
 
       <!-- Sobre -->
-      <a href="sobre.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="info" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Sobre</span>
+      <a href="sobre.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="info" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Sobre</span>
       </a>
 
       <!-- Cursos -->
-      <a href="cursos.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="graduation-cap" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Cursos</span>
+      <a href="cursos.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="graduation-cap" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Cursos</span>
       </a>
 
       <!-- Contato -->
-      <a href="contato.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="mail" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Contato</span>
+      <a href="contato.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="mail" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Contato</span>
       </a>
 
       <!-- Localização -->
-      <a href="localizacao.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="map-pin" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Localização</span>
+      <a href="localizacao.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="map-pin" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Local</span>
       </a>
 
-      <!-- Serviço -->
-      <a href="servico.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="settings" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Serviço</span>
+      <!-- Serviços -->
+      <a href="servico.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="settings" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Serviços</span>
       </a>
 
       <!-- Área do Aluno -->
-      <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="user" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Em breve</span>
+      <a href="index1.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="user" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Aluno</span>
       </a>
 
       <!-- Galeria -->
-      <a href="index1.html" class="icon-container flex flex-col items-center transition-all duration-200">
-        <i data-lucide="image" class="lucide w-14 h-14 text-blue-300 hover:text-blue-100"></i>
-        <span class="mt-2 text-sm font-medium text-blue-100 hover:text-white">Em breve</span>
+      <a href="galeria.html" class="icon-card flex flex-col items-center">
+        <div class="bg-blue-600/20 p-2 sm:p-3 rounded-full mb-2">
+          <i data-lucide="image" class="lucide w-10 h-10 sm:w-10 sm:h-10 text-blue-300"></i>
+        </div>
+        <span class="text-white font-medium text-xs sm:text-sm">Galeria</span>
       </a>
-
     </div>
   </div>
 
   <script>
-    lucide.createIcons(); // Inicializa os ícones
+    // Inicializa ícones
+    lucide.createIcons();
   </script>
-
 </body>
 </html>
